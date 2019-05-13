@@ -3,18 +3,21 @@ import React from "react";
 /* styling */
 import "./PeopleCard.css";
 
-const PeopleCard = () => (
+/**
+ * PeopleCard - presentational component for people card information
+ *
+ * @param {Object} props.person - person information
+ */
+const PeopleCard = ({ person }) => (
   <div class="card-wrapper">
-    <div>ID:</div>
+    <div>ID: {person.id}</div>
     <div>
-      <img
-        src="http://www.rammandir.ca/sites/default/files/default_images/defaul-avatar_0.jpg"
-        width="80"
-        height="80"
-        alt="avatar"
-      />
+      <img src={person.avatar} width="80" height="80" alt={person.first_name} />
     </div>
-    <div>Last Name, First Name</div>
+    <div>
+      {person.last_name}, <br />
+      {person.first_name}
+    </div>
   </div>
 );
 
