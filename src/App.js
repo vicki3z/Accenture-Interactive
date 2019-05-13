@@ -1,17 +1,13 @@
 import React from "react";
 import "./App.css";
 
-/* Component */
-import PeopleList from "./components/PeopleList/PeopleList";
-import Pagination from "./components/Pagination/Pagination";
+/* Container */
+import PeopleContainer from "./containers/PeopleContainer/PeopleContainer";
 
 function App() {
   return (
     <div className="App">
-      <div>
-        <Pagination />
-        <PeopleList />
-      </div>
+      <PeopleContainer />
     </div>
   );
 }
