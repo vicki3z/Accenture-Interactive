@@ -18,7 +18,8 @@ export default function PeopleContainer() {
       .then(response => {
         setPeopleData({
           page: page ? page : data.page,
-          people: response.data.data
+          people: response.data.data,
+          totalPages: response.data.total_pages
         });
       });
   }
@@ -39,6 +40,7 @@ export default function PeopleContainer() {
         handlePrev={prevPage}
         page={data.page}
         people={data.people}
+        totalPages={data.totalPages}
       />
       <PeopleList people={data.people} />
     </>
