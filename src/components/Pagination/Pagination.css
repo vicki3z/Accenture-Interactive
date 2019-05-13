@@ -22,3 +22,13 @@ button:hover {
 button:last-child {
   margin-right: 0;
 }
+
+input {
+  width: 20px;
+  padding: 8px;
+  margin-right: 10px;
+  background: #bcbcbc;
+  border: none;
+  color: #fff;
+  text-align: center;
+}

@@ -9,7 +9,8 @@ export default function PeopleContainer() {
   const [data, setPeopleData] = useState({
     page: 1,
     people: [],
-    totalPages: 0
+    totalPages: 0,
+    error: false
   });
 
   function handleClickGetPeople(page) {
@@ -19,7 +20,8 @@ export default function PeopleContainer() {
         setPeopleData({
           page: page ? page : data.page,
           people: response.data.data,
-          totalPages: response.data.total_pages
+          totalPages: response.data.total_pages,
+          error: false
         });
       });
   }
@@ -32,12 +34,30 @@ export default function PeopleContainer() {
     handleClickGetPeople(data.page - 1);
   }
 
+  function handleInputChange(e) {
+    const page = Number(e.target.value);
+
+    if (!isNaN(page) && page <= data.totalPages) {
+      handleClickGetPeople(page);
+    } else {
+      // set error value to true for invalid input
+      setPeopleData({
+        page: data.page,
+        people: data.people,
+        totalPages: data.totalPages,
+        error: true
+      });
+    }
+  }
+
   return (
     <>
+      {data.error && <div style={{ color: "red" }}>Invalid input</div>}
       <Pagination
         handleClick={handleClickGetPeople}
         handleNext={nextPage}
         handlePrev={prevPage}
+        handleInputChange={handleInputChange}
         page={data.page}
         people={data.people}
         totalPages={data.totalPages}

@@ -5,3 +5,7 @@
   margin-right: 30px;
   padding: 10px 0;
 }
+
+.card-wrapper:last-child {
+  margin-right: 0;
+}
