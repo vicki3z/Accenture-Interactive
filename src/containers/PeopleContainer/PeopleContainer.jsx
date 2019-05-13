@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
-
-/* Logic hooks */
-import usePeople from "../../logic-hooks/usePeople";
 
 /* Components */
 import Pagination from "../../components/Pagination/Pagination";
 import PeopleList from "../../components/PeopleList/PeopleList";
 
 export default function PeopleContainer() {
-  const { data, setPeopleData } = usePeople();
+  const [data, setPeopleData] = useState({
+    page: 1,
+    people: [],
+    totalPages: 0
+  });
 
   function handleClickGetPeople(page) {
-    console.log(page);
     axios
       .get(`https://reqres.in/api/users?page=${page ? page : data.page}`)
       .then(response => {
