@@ -9,7 +9,7 @@ import "./PeopleCard.css";
  * @param {Object} props.person - person information
  */
 const PeopleCard = ({ person }) => (
-  <div class="card-wrapper">
+  <div className="card-wrapper">
     <div>ID: {person.id}</div>
     <div>
       <img src={person.avatar} width="80" height="80" alt={person.first_name} />
